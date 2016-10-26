@@ -4,13 +4,15 @@ import model.Route;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
+import model.Hashtable;
 
 public class Seeder {
 
     public static void main(String[] args) {
+        Hashtable table = new Hashtable();
 				
         try {
-                FileReader routes = new FileReader("C:\\Users\\Gabriel\\Documents\\NetBeansProjects\\RobinHoodHashing\\src\\data\\routes.txt");
+                FileReader routes = new FileReader("data/routes.txt");
                 Scanner input = new Scanner(routes).useDelimiter("[,\n]");
                 input.nextLine(); //Pula o cabecalho do arquivo (da tabela)
 
@@ -25,7 +27,11 @@ public class Seeder {
                         route.setColor(input.next());
                         route.setTextColor(input.next());
                         // insert(route.getLongName);
-                        System.out.println(route.getLongName());
+                        
+                        String key = route.getShortName();
+                        String value = route.getLongName();
+                        
+                        table.insert(key, value);                  
                 }
 
 
