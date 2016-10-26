@@ -1,5 +1,6 @@
 package main;
 
+import model.Route;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
